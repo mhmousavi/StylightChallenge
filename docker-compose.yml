@@ -1,0 +1,14 @@
+version: "3"
+
+services:
+  db:
+    image: docker.repos.balad.ir/mysql
+    restart: always
+  app:
+    build: .
+    command: python main.py
+    volumes:
+      - .:/code
+    depends_on:
+      - db
+
