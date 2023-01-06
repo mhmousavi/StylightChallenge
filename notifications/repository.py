@@ -12,7 +12,7 @@ class NotificationRepository(RepositoryManger):
             SELECT t_budgets.a_id
             FROM t_budgets
             LEFT OUTER JOIN t_notifications ON t_budgets.a_id = t_notifications.a_budget_id 
-            WHERE t_notifications.a_notification_type IS NULL AND t_budgets.a_month = {}
+            WHERE t_notifications.a_notification_type IS NULL AND t_budgets.a_month = '{}'
             """.format(current_month)
         )
         cursor.execute(query)
@@ -29,7 +29,7 @@ class NotificationRepository(RepositoryManger):
             SELECT t_budgets.a_id
             FROM t_budgets
             LEFT OUTER JOIN t_notifications ON t_budgets.a_id = t_notifications.a_budget_id 
-            WHERE t_notifications.a_notification_type = {} AND t_budgets.a_month = {}
+            WHERE t_notifications.a_notification_type = {} AND t_budgets.a_month = '{}'
             """.format(type, current_month)
         )
         cursor.execute(query)

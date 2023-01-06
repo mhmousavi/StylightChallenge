@@ -16,7 +16,6 @@ def send_notification_to_half(current_day):
     not_notified_budgets = notifications_repo_singleton.get_not_notified_budgets(
         current_month
     )
-
     to_notify_list = budgets_repo_singleton.get_all_percent_spent_budget_in_list(
         not_notified_budgets,
         0.5,
@@ -41,7 +40,7 @@ def send_notification_to_full(current_day):
     current_month = str(current_day.replace(day=1).date())
 
     half_notified_budgets = notifications_repo_singleton.get_notified_budgets_with_type(
-        notifications_repo_singleton.FULL,
+        notifications_repo_singleton.HALF,
         current_month
     )
 
@@ -65,5 +64,8 @@ def send_notification_to_full(current_day):
         )
 
 
-send_notification_to_half(datetime.today())
-send_notification_to_full(datetime.today())
+# day = datetime(2020, 6, 1)
+
+day = datetime.today()
+send_notification_to_half(day)
+send_notification_to_full(day)
