@@ -13,4 +13,4 @@ RUN apt-get update
 
 RUN python -m pip install -r requirements.txt
 
-COPY . /code/
+COPY . .
